@@ -1,5 +1,5 @@
 {
-    "name": "setup",
+    "name": "auth-guardian",
     "version": "1.0.0",
     "description": "",
     "main": "index.js",
@@ -16,15 +16,15 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/marialauras/setup-node.git"
+        "url": "git+https://github.com/marialauras/auth-guardian.git"
     },
     "keywords": [],
     "author": "",
     "license": "ISC",
     "bugs": {
-        "url": "https://github.com/marialauras/setup-node/issues"
+        "url": "https://github.com/marialauras/auth-guardian/issues"
     },
-    "homepage": "https://github.com/marialauras/setup-node#readme",
+    "homepage": "https://github.com/marialauras/auth-guardian#readme",
     "devDependencies": {
         "@types/express": "^4.17.18",
         "@types/jest": "^29.5.5",
