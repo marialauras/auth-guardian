@@ -11,8 +11,9 @@
         "eslint": "eslint --fix 'src/**'",
         "test": "jest --passWithNoTests",
         "test:watch": "jest --watch",
-        "test:staged": "jest --findRelatedTests",
-        "test:push": "jest --coverage"
+        "test:staged": "jest --findRelatedTests ./src/person.ts",
+        "test:push": "jest --coverage",
+        "prepare": "husky install"
     },
     "repository": {
         "type": "git",
