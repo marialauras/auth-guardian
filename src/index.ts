@@ -8,8 +8,9 @@ import { config } from "dotenv"
 
 const main = async () => {
     config()
-    const app = express()
     await MongoClient.connect()
+    const app = express()
+
     const port = process.env.PORT
     app.listen(port, () => console.log("listen on port 3000"))
 
