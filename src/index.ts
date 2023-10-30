@@ -12,16 +12,17 @@ const main = async () => {
     config()
 
     const app = express()
-    app.use(express.json)
+    app.use(express.json())
     await MongoClient.connect()
 
     const port = process.env.PORT
-    app.listen(port, () => console.log("listen on port 3000"))
+
+    app.listen(port, () => console.log("listen on port ", port))
 
     const person = new Person()
 
     app.get("/", (req: Request, res: Response) => {
-        res.send(person.sayBye())
+        res.send(person.sayHello())
     })
 
     app.get("/users", async (req: Request, res: Response) => {
@@ -31,7 +32,7 @@ const main = async () => {
         )
         const { body, statusCode } = await getUsersController.handle()
 
-        res.send(body).status(statusCode)
+        res.status(statusCode).send(body)
     })
 
     app.post("/users", async (req, res) => {
@@ -43,7 +44,7 @@ const main = async () => {
             body: req.body,
         })
 
-        res.send(body).status(statusCode)
+        res.status(statusCode).send(body)
     })
 }
 
