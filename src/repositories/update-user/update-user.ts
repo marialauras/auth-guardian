@@ -1,5 +1,8 @@
 import { User } from "@/models/user"
-import { IUpdateUserRepository, UpdateUserParams } from "./protocols"
+import {
+    IUpdateUserRepository,
+    UpdateUserParams,
+} from "../../controllers/update-user/protocols"
 import { MongoClient } from "@/database/mongo"
 import { ObjectId } from "mongodb"
 
@@ -14,12 +17,16 @@ export class MongoUpdateUserRepository implements IUpdateUserRepository {
             },
         )
 
-        const user = MongoClient.db
+        const user = await MongoClient.db
             .collection<Omit<User, "id">>("users")
             .findOne({ _id: new ObjectId(id) })
 
         if (!user) {
             throw new Error("User not updated!")
         }
+
+        const { _id, ...rest } = user
+
+        return { id: _id.toHexString(), ...rest }
     }
 }

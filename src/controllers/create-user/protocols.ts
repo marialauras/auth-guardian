@@ -7,6 +7,10 @@ export interface ICreateUserController {
     ): Promise<HttpResponse<User>>
 }
 
+export interface ICreateUserController {
+    handle(httpRequest: HttpRequest<any>): Promise<HttpResponse<User>>
+}
+
 export interface CreateUserParams {
     fistName: string
     lastName: string
